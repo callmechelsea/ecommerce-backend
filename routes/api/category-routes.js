@@ -36,7 +36,7 @@ res.status(200).json({message: "Category created!", newCategory});
 router.put('/:id', async (req, res) => {
   // update a category by its `id` value
   const updateCategory = await Category.update(
-    { catgory_name: req.body.category_name },
+    { category_name: req.body.category_name },
     { where: { id: req.params.id } }
   );
   res.status(200).json({message: "Category updated!", updateCategory});
@@ -47,7 +47,7 @@ router.delete('/:id', async (req, res) => {
   const deleteCategory = await Category.destroy({
     where: { id: req.params.id },
   });
-  res.status(200).json({message: "Category deleted!", deleteCategory});
+  res.status(200).json({ message: "Category deleted!" });
 });
 
 module.exports = router;
